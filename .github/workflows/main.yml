@@ -2,6 +2,7 @@ name: Daily Poetry Email
 on:
   schedule:
     - cron: '0 13 * * *'  # Runs 9:00 UTC daily
+  workflow_dispatch:       # enables manual trigger
 jobs:
   send_email:
     runs-on: ubuntu-latest
