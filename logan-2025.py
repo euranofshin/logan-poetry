@@ -44,7 +44,6 @@ def send_email_with_embedded_image(
     smtp_port=465,
 ):
     # Download image
-    headers = {"User-Agent": "email-image-embedder/1.0"}
     headers = {"User-Agent": "PoetryEmailBot/0.1 by u/machinesyall"}
     response = requests.get(image_url, headers=headers)
     response.raise_for_status()
@@ -91,7 +90,7 @@ def send_email_with_embedded_image(
         smtp.send_message(msg)
 
 URL = "https://www.reddit.com/r/Poetry/top.json"
-HEADERS = {"User-Agent": "poetry-email-script/1.0"}
+HEADERS = {"User-Agent": "PoetryEmailBot/0.1 by u/machinesyall"}
 
 params = {
     "t": "day",
