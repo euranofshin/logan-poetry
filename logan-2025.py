@@ -45,6 +45,7 @@ def send_email_with_embedded_image(
 ):
     # Download image
     headers = {"User-Agent": "email-image-embedder/1.0"}
+    headers = {"User-Agent": "PoetryEmailBot/0.1 by u/machinesyall"}
     response = requests.get(image_url, headers=headers)
     response.raise_for_status()
     image_bytes = response.content
