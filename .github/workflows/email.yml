@@ -16,5 +16,5 @@ jobs:
       - name: Run script
         run: python logan-2025.py
         env:
-          APP_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
 
