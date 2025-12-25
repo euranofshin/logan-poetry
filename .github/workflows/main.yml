@@ -12,7 +12,9 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install requests
       - name: Run script
         run: python logan-2025.py
         env:
