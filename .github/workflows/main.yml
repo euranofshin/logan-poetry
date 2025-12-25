@@ -1,33 +1,19 @@
 name: Daily Poetry Email
-
-# Schedule the workflow
 on:
   schedule:
-    - cron: '0 13 * * *'  # Runs daily at 09:00 UTC
-  workflow_dispatch:     # Allows manual trigger from Actions tab
-
+    - cron: '0 13 * * *'  # Runs 9:00 UTC daily
 jobs:
   send_email:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Checkout the repository
       - uses: actions/checkout@v3
-
-      # Step 2: Setup Python
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-          
-      # Step 3: Install dependencies
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      # Step 4: Run your script
-      - name: Run poetry email script
+        run: pip install requests
+      - name: Run script
         run: python logan-2025.py
         env:
           APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
